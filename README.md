@@ -34,7 +34,7 @@ baseline/
 ### Backend (BE/)
 - **Framework**: FastAPI
 - **Language**: Python 3.13
-- **LLM**: OpenAI GPT-5.2
+- **LLM**: OpenAI GPT-4o
 - **Logging**: JSON-based file logging (session-based)
 - **Server**: Uvicorn
 
@@ -49,7 +49,7 @@ baseline/
 
 ### 2. AI-Powered Option Generation
 - Automatically generates personalized career/decision alternatives based on Steps 0-2 input
-- Uses OpenAI GPT-5.2 model
+- Uses OpenAI GPT-4o model
 - Dynamic profile fields based on Step 2 information template
 - Structured prompt engineering with user-defined fields
 
@@ -169,7 +169,7 @@ Generate AI alternatives based on Steps 0-2 data
 ### Backend (BE/.env)
 ```env
 OPENAI_API_KEY=sk-your-api-key-here
-OPENAI_MODEL=gpt-5.2
+OPENAI_MODEL=gpt-4o
 FRONTEND_URL=http://localhost:3000
 ```
 
@@ -233,4 +233,4 @@ Bug reports and feature suggestions are welcome via GitHub Issues.
 ---
 
 **Development Period**: January 2026
-**Key Technologies**: Next.js 14, TypeScript, FastAPI, OpenAI GPT-5.2
+**Key Technologies**: Next.js 14, TypeScript, FastAPI, OpenAI GPT-4o

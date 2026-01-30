@@ -11,28 +11,38 @@ logger = logging.getLogger(__name__)
 router = APIRouter()
 
 # Request/Response Models
-class Step0Data(BaseModel):
-    values: List[str] = Field(default_factory=list)
-    interests: List[str] = Field(default_factory=list)
-    strengths: List[str] = Field(default_factory=list)
-    mustHaveConstraints: List[str] = Field(default_factory=list)
-    niceToHaveConstraints: List[str] = Field(default_factory=list)
-    concerns: Optional[str] = None
+class ExternalCues(BaseModel):
+    events: Optional[str] = None
+    significantOther: Optional[str] = None
+
+class InternalCues(BaseModel):
+    emotions: Optional[str] = None
+    avoidanceBehaviour: Optional[str] = None
+    physicallyFeeling: Optional[str] = None
 
 class Step1Data(BaseModel):
-    problemDefinition: Optional[str] = None
-    internalCues: List[str] = Field(default_factory=list)
-    externalCues: List[str] = Field(default_factory=list)
-    keyQuestions: List[str] = Field(default_factory=list)
+    externalCues: ExternalCues = Field(default_factory=ExternalCues)
+    internalCues: InternalCues = Field(default_factory=InternalCues)
+
+class SelfKnowledge(BaseModel):
+    values: Optional[str] = None
+    interests: Optional[str] = None
+    skills: Optional[str] = None
+    occupationalInterests: Optional[str] = None
+
+class Metacognition(BaseModel):
+    selfTalk: Optional[str] = None
+    selfAwareness: Optional[str] = None
+    controlAndMonitoring: Optional[str] = None
 
 class Step2Data(BaseModel):
-    evaluationCriteria: List[str] = Field(default_factory=list)
-    constraints: List[str] = Field(default_factory=list)
-    informationTemplate: List[Dict[str, str]] = Field(default_factory=list)
+    selfKnowledge: SelfKnowledge = Field(default_factory=SelfKnowledge)
+    occupationalKnowledge: Optional[str] = None
+    decisionMakingStyle: Optional[str] = None
+    metacognition: Metacognition = Field(default_factory=Metacognition)
 
 class GenerateOptionsRequest(BaseModel):
     sessionId: str
-    step0: Step0Data
     step1: Step1Data
     step2: Step2Data
 
@@ -58,7 +68,6 @@ async def generate_options(request: GenerateOptionsRequest):
             session_id=request.sessionId,
             activity_type="generate_options_request",
             data={
-                "step0": request.step0.model_dump(),
                 "step1": request.step1.model_dump(),
                 "step2": request.step2.model_dump()
             }
@@ -66,7 +75,6 @@ async def generate_options(request: GenerateOptionsRequest):
         
         # Call OpenAI service
         result = openai_service.generate_options(
-            step0_data=request.step0.model_dump(),
             step1_data=request.step1.model_dump(),
             step2_data=request.step2.model_dump()
         )
@@ -86,6 +94,11 @@ async def generate_options(request: GenerateOptionsRequest):
             parsed_response = json.loads(content)
             options = parsed_response.get("options", [])
             
+            # Add unique IDs to each option
+            import uuid
+            for option in options:
+                option["id"] = str(uuid.uuid4())
+            
         except json.JSONDecodeError as e:
             logger.error(f"Failed to parse LLM response as JSON: {str(e)}")
             logger.error(f"Raw response: {result['content']}")
@@ -94,7 +107,7 @@ async def generate_options(request: GenerateOptionsRequest):
         # Log LLM generation
         log_llm_generation(
             session_id=request.sessionId,
-            prompt="Steps 0-2 data (see user_activity log)",
+            prompt="Steps 1-2 data (see user_activity log)",
             response=content,
             model=result["model"],
             tokens_used=result["tokens_used"]

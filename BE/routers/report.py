@@ -10,11 +10,12 @@ router = APIRouter()
 
 class ReportDataRequest(BaseModel):
     sessionId: str
-    step0: Dict[str, Any]
     step1: Dict[str, Any]
     step2: Dict[str, Any]
     step3: Dict[str, Any]
     step4: Dict[str, Any]
+    step5: Dict[str, Any]
+    step6: Dict[str, Any]
 
 class ReportDataResponse(BaseModel):
     success: bool
@@ -23,7 +24,7 @@ class ReportDataResponse(BaseModel):
 @router.post("/save-report", response_model=ReportDataResponse)
 async def save_report_data(request: ReportDataRequest):
     """
-    Save complete worksheet data (Steps 0-4) to log file when user views report
+    Save complete worksheet data (Steps 1-6) to log file when user views report
     """
     try:
         logger.info(f"Saving report data for session {request.sessionId}")
@@ -31,11 +32,12 @@ async def save_report_data(request: ReportDataRequest):
         # Log the complete report data
         log_report_data(
             session_id=request.sessionId,
-            step0_data=request.step0,
             step1_data=request.step1,
             step2_data=request.step2,
             step3_data=request.step3,
-            step4_data=request.step4
+            step4_data=request.step4,
+            step5_data=request.step5,
+            step6_data=request.step6
         )
         
         logger.info(f"Report data saved successfully for session {request.sessionId}")

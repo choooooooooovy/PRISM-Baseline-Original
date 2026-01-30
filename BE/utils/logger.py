@@ -72,19 +72,20 @@ def log_llm_generation(session_id: str, prompt: str, response: str, model: str, 
     with open(log_file, 'w', encoding='utf-8') as f:
         json.dump(logs, f, ensure_ascii=False, indent=2)
 
-def log_report_data(session_id: str, step0_data: dict, step1_data: dict, step2_data: dict, step3_data: dict, step4_data: dict):
-    """Log complete report data (Steps 0-4) to session-specific JSON file"""
+def log_report_data(session_id: str, step1_data: dict, step2_data: dict, step3_data: dict, step4_data: dict, step5_data: dict, step6_data: dict):
+    """Log complete report data (Steps 1-6) to session-specific JSON file"""
     session_dir = Path("logs") / session_id
     session_dir.mkdir(parents=True, exist_ok=True)
     log_file = session_dir / "report_data.json"
     
     log_entry = {
         "timestamp": datetime.now().isoformat(),
-        "step0": step0_data,
         "step1": step1_data,
         "step2": step2_data,
         "step3": step3_data,
-        "step4": step4_data
+        "step4": step4_data,
+        "step5": step5_data,
+        "step6": step6_data
     }
     
     # For report data, we save the complete snapshot (not append)
