@@ -73,7 +73,6 @@ export function WorksheetShell() {
   };
 
   const canGoNext = () => {
-    // Step 3에서는 최소 2개 이상의 대안이 선택되어야 함
     if (session.currentStep === 3) {
       return session.step3.selectedOptionIds.length >= 2 && session.step3.selectedOptionIds.length <= 5;
     }
