@@ -1,11 +1,40 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FileText, CheckCircle2 } from 'lucide-react';
 import { useWorksheet } from '../context/WorksheetContext';
+import {
+  saveSessionToServer,
+  isSessionSubmitted,
+  markSessionAsSubmitted,
+} from '@/lib/services/session-logger';
 
 export function ReportView() {
   const { session } = useWorksheet();
+
+  // 리포트 보기 시 서버로 세션 데이터 전송
+  useEffect(() => {
+    const submitSession = async () => {
+      // 이미 전송된 세션이면 스킵
+      if (isSessionSubmitted(session.id)) {
+        console.log('✓ Session already submitted, skipping');
+        return;
+      }
+
+      // 서버로 전송
+      const result = await saveSessionToServer(session);
+
+      if (result.success) {
+        // 전송 성공 시 localStorage에 기록
+        markSessionAsSubmitted(session.id);
+        console.log('✓ Session successfully submitted to server');
+      } else {
+        console.warn('⚠ Failed to submit session, will retry next time');
+      }
+    };
+
+    submitSession();
+  }, [session]);
 
   // Get selected options from Step 3
   const selectedOptions = session.step3.generatedOptions.filter(opt =>
