@@ -20,7 +20,6 @@ interface WorksheetContextValue {
   updateStep3: (data: Partial<WorksheetSession['step3']>) => void;
   updateStep4: (data: Partial<WorksheetSession['step4']>) => void;
   updateStep5: (data: Partial<WorksheetSession['step5']>) => void;
-  updateStep6: (data: Partial<WorksheetSession['step6']>) => void;
 }
 
 const WorksheetContext = createContext<WorksheetContextValue | null>(null);
@@ -110,10 +109,6 @@ export function WorksheetProvider({ children, initialSession }: WorksheetProvide
     dispatch({ type: 'UPDATE_STEP5', payload: data });
   }, []);
 
-  const updateStep6 = useCallback((data: Partial<WorksheetSession['step6']>) => {
-    dispatch({ type: 'UPDATE_STEP6', payload: data });
-  }, []);
-
   const value: WorksheetContextValue = {
     session,
     dispatch,
@@ -127,7 +122,6 @@ export function WorksheetProvider({ children, initialSession }: WorksheetProvide
     updateStep3,
     updateStep4,
     updateStep5,
-    updateStep6,
   };
 
   return (

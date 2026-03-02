@@ -12,7 +12,6 @@ export type WorksheetAction =
   | { type: 'UPDATE_STEP3'; payload: Partial<WorksheetSession['step3']> }
   | { type: 'UPDATE_STEP4'; payload: Partial<WorksheetSession['step4']> }
   | { type: 'UPDATE_STEP5'; payload: Partial<WorksheetSession['step5']> }
-  | { type: 'UPDATE_STEP6'; payload: Partial<WorksheetSession['step6']> }
   | { type: 'RESET_SESSION' };
 
 /**
@@ -86,13 +85,6 @@ export function worksheetReducer(
       return {
         ...state,
         step5: { ...state.step5, ...action.payload },
-        updatedAt: new Date().toISOString(),
-      };
-
-    case 'UPDATE_STEP6':
-      return {
-        ...state,
-        step6: { ...state.step6, ...action.payload },
         updatedAt: new Date().toISOString(),
       };
 

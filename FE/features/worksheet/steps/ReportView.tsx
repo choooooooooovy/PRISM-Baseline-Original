@@ -246,34 +246,6 @@ export function ReportView() {
               )}
             </div>
           </section>
-
-          {/* Step 6: Communication (Recycle) */}
-          <section className="mb-8 bg-white border border-gray-200 rounded-lg p-6">
-            <h2 className="text-base font-semibold text-gray-900 mb-4">Step 6: Communication (Recycle)</h2>
-
-            <div className="space-y-4">
-              {session.step6.emotions && (
-                <div>
-                  <h3 className="text-sm font-medium text-gray-900 mb-2">감정</h3>
-                  <p className="text-sm text-gray-600 pl-3">{session.step6.emotions}</p>
-                </div>
-              )}
-
-              {session.step6.hasGapClosed && (
-                <div>
-                  <h3 className="text-sm font-medium text-gray-900 mb-2">격차 해소</h3>
-                  <p className="text-sm text-gray-600 pl-3">{session.step6.hasGapClosed}</p>
-                </div>
-              )}
-
-              {session.step6.action && (
-                <div>
-                  <h3 className="text-sm font-medium text-gray-900 mb-2">행동</h3>
-                  <p className="text-sm text-gray-600 pl-3">{session.step6.action}</p>
-                </div>
-              )}
-            </div>
-          </section>
         </div>
       </div>
     </div>

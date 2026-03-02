@@ -14,7 +14,6 @@ import { Step2Analysis } from '../steps/Step2Analysis';
 import { Step3Synthesis } from '../steps/Step3Synthesis';
 import { Step4Valuing } from '../steps/Step4Valuing';
 import { Step5Execution } from '../steps/Step5Execution';
-import { Step6Communication } from '../steps/Step6Communication';
 import { ReportView } from '../steps/ReportView';
 
 export function WorksheetShell() {
@@ -36,12 +35,12 @@ export function WorksheetShell() {
   };
 
   const handleNextStep = () => {
-    goToNextStep();
-  };
-
-  const handleViewReport = () => {
-    // Show report view with current session data
-    setShowReport(true);
+    // If on Step 5, show report instead of going to next step
+    if (session.currentStep === 5) {
+      setShowReport(true);
+    } else {
+      goToNextStep();
+    }
   };
 
   const handleBackToWorksheet = () => {
@@ -65,8 +64,6 @@ export function WorksheetShell() {
         return <Step4Valuing />;
       case 5:
         return <Step5Execution />;
-      case 6:
-        return <Step6Communication />;
       default:
         return null;
     }
@@ -171,24 +168,14 @@ export function WorksheetShell() {
               Step {session.currentStep} / {session.steps.length}
             </div>
 
-            {session.currentStep === 6 ? (
-              <Button
-                onClick={handleViewReport}
-                className="flex items-center gap-2"
-              >
-                리포트 보기
-                <ArrowRight className="w-4 h-4" strokeWidth={2} />
-              </Button>
-            ) : (
-              <Button
-                onClick={handleNextStep}
-                disabled={!canGoNext()}
-                className="flex items-center gap-2"
-              >
-                다음
-                <ArrowRight className="w-4 h-4" strokeWidth={2} />
-              </Button>
-            )}
+            <Button
+              onClick={handleNextStep}
+              disabled={!canGoNext()}
+              className="flex items-center gap-2"
+            >
+              {session.currentStep === 5 ? '리포트 보기' : '다음'}
+              <ArrowRight className="w-4 h-4" strokeWidth={2} />
+            </Button>
           </>
         )}
       </footer>

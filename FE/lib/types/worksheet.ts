@@ -81,14 +81,6 @@ export interface Step5Data {
   employmentSeeking: string;   // 구직 활동
 }
 
-// Step 6: Communication (의사소통 - Recycle)
-export interface Step6Data {
-  emotions: string;           // 잠정 선택에 대한 감정
-  hasGapClosed: string;       // 격차 해소 여부
-  physicallyFeeling: string;  // 신체 상태 변화
-  action: string;             // 행동 여부
-}
-
 // Main Worksheet Session
 export interface WorksheetSession {
   id: string;
@@ -106,7 +98,6 @@ export interface WorksheetSession {
   step3: Step3Data;
   step4: Step4Data;
   step5: Step5Data;
-  step6: Step6Data;
 }
 
 // Initial empty state factory
@@ -123,7 +114,6 @@ export function createEmptySession(id: string = ''): WorksheetSession {
       { id: 3, label: 'Synthesis', status: 'draft' },
       { id: 4, label: 'Valuing', status: 'draft' },
       { id: 5, label: 'Execution', status: 'draft' },
-      { id: 6, label: 'Communication (Recycle)', status: 'draft' },
     ],
     step1: {
       externalCues: {
@@ -170,12 +160,6 @@ export function createEmptySession(id: string = ''): WorksheetSession {
         timeAndResources: '',
       },
       employmentSeeking: '',
-    },
-    step6: {
-      emotions: '',
-      hasGapClosed: '',
-      physicallyFeeling: '',
-      action: '',
     },
   };
 }
