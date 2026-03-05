@@ -73,7 +73,7 @@ export function WorksheetShell() {
     if (session.currentStep === 3) {
       return session.step3.selectedOptionIds.length >= 2 && session.step3.selectedOptionIds.length <= 5;
     }
-    return session.currentStep < session.steps.length;
+    return session.currentStep <= session.steps.length;
   };
 
   const canGoPrevious = session.currentStep > 1;
