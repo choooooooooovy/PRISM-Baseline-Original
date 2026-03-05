@@ -13,13 +13,13 @@ export function LandingPage({ onStartNew }: LandingPageProps) {
   const [showInfoModal, setShowInfoModal] = useState(false);
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
       {/* Header */}
-      <header className="border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+      <header className="border-b border-[var(--color-border)] bg-[var(--color-bg-primary)]">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-8 py-5">
           <div className="flex items-center gap-2.5">
-            <FileText className="w-5 h-5 text-gray-900" strokeWidth={2} />
-            <h1 className="text-base font-semibold text-gray-900">CASVE Worksheet</h1>
+            <FileText className="h-5 w-5 text-[var(--color-accent)]" strokeWidth={2} />
+            <h1 className="text-base font-semibold text-[var(--color-text-primary)]">CASVE Worksheet</h1>
           </div>
           <Button
             variant="ghost"
@@ -27,19 +27,19 @@ export function LandingPage({ onStartNew }: LandingPageProps) {
             onClick={() => setShowInfoModal(true)}
             className="flex items-center gap-2"
           >
-            <Info className="w-4 h-4" strokeWidth={2} />
+            <Info className="h-4 w-4" strokeWidth={2} />
             실험 안내
           </Button>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="max-w-6xl mx-auto px-12 pt-20 pb-16">
+      <section className="mx-auto max-w-6xl px-12 pb-16 pt-20">
         <div className="max-w-3xl">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-3 tracking-tight">
+          <h2 className="mb-3 text-2xl font-semibold tracking-tight text-[var(--color-text-primary)]">
             진로 탐색 의사결정 워크시트
           </h2>
-          <p className="text-base text-gray-600 leading-relaxed mb-8">
+          <p className="mb-8 text-base leading-relaxed text-[var(--color-text-secondary)]">
             본 워크시트는 진로·전공 선택 과정에서 떠오르는 생각과 기준을 단계별로 정리하도록 지원합니다.<br />
             시스템은 질문을 제시하고 응답을 구조화해 보여주는 역할만 하며, 해석과 최종 선택은 참여자가 직접 수행합니다.<br />
             작성된 내용은 이후 단계에서 비교·검토 자료로 활용됩니다.
@@ -50,13 +50,13 @@ export function LandingPage({ onStartNew }: LandingPageProps) {
             className="inline-flex items-center gap-2"
           >
             워크시트 시작
-            <ArrowRight className="w-4 h-4" strokeWidth={2} />
+            <ArrowRight className="h-4 w-4" strokeWidth={2} />
           </Button>
         </div>
 
         {/* Process Overview */}
         <div className="mt-20">
-          <h3 className="text-sm font-medium text-gray-500 mb-5">워크시트 단계</h3>
+          <h3 className="mb-5 text-sm font-medium text-[var(--color-text-secondary)]">워크시트 단계</h3>
           <div className="space-y-3">
             {[
               {
@@ -90,14 +90,14 @@ export function LandingPage({ onStartNew }: LandingPageProps) {
                 description: '실행 과정에서의 변화를 평가하고 필요시 의사결정 과정을 성찰합니다.'
               }
             ].map((item, idx) => (
-              <div key={idx} className="bg-gray-50 border border-gray-200 rounded-lg p-4">
+              <div key={idx} className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-surface)] p-4">
                 <div className="flex items-start gap-3">
-                  <div className="shrink-0 w-6 h-6 rounded-full border-2 border-gray-300 flex items-center justify-center mt-0.5">
-                    <span className="text-xs font-medium text-gray-500">{item.step}</span>
+                  <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full border-2 border-[var(--color-border)] bg-[var(--color-bg-card)]">
+                    <span className="text-xs font-medium text-[var(--color-text-secondary)]">{item.step}</span>
                   </div>
                   <div className="flex-1">
-                    <h4 className="text-sm font-medium text-gray-900 mb-1">{item.label}</h4>
-                    <p className="text-xs text-gray-600 leading-relaxed">{item.description}</p>
+                    <h4 className="mb-1 text-sm font-medium text-[var(--color-text-primary)]">{item.label}</h4>
+                    <p className="text-xs leading-relaxed text-[var(--color-text-secondary)]">{item.description}</p>
                   </div>
                 </div>
               </div>

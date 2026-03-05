@@ -19,7 +19,7 @@ interface StepNavigationProps {
 
 export function StepNavigation({ steps, currentStep, onStepClick }: StepNavigationProps) {
   return (
-    <div className="p-4 space-y-2">
+    <div className="space-y-2 p-4">
       {steps.map((step) => {
         const isActive = step.id === currentStep;
         const isComplete = step.status === 'complete';
@@ -29,27 +29,28 @@ export function StepNavigation({ steps, currentStep, onStepClick }: StepNavigati
             key={step.id}
             onClick={() => onStepClick(step.id)}
             className={cn(
-              'w-full flex items-start gap-3 p-3 rounded-lg text-left transition-all',
+              'w-full rounded-lg border p-3 text-left transition-all',
+              'flex items-start gap-3',
               isActive
-                ? 'bg-gray-900 text-white'
-                : 'bg-white hover:bg-gray-50 text-gray-900 border border-gray-200'
+                ? 'border-[var(--color-accent)] bg-[var(--color-accent-soft)] text-[var(--color-text-primary)]'
+                : 'border-[var(--color-border)] bg-[var(--color-bg-card)] text-[var(--color-text-primary)] hover:bg-[var(--color-hover)]'
             )}
           >
             <div
               className={cn(
-                'shrink-0 w-6 h-6 rounded-full flex items-center justify-center text-xs font-medium',
+                'flex h-6 w-6 shrink-0 items-center justify-center rounded-full text-xs font-medium',
                 isActive
-                  ? 'bg-white text-gray-900'
+                  ? 'border border-[var(--color-accent)] bg-[var(--color-accent)] text-[var(--primary-foreground)]'
                   : isComplete
-                    ? 'bg-gray-900 text-white'
-                    : 'bg-gray-100 text-gray-600 border-2 border-gray-300'
+                    ? 'bg-[var(--color-benefits)] text-[var(--primary-foreground)]'
+                    : 'border-2 border-[var(--color-border)] bg-[var(--color-bg-surface)] text-[var(--color-text-secondary)]'
               )}
             >
-              {isComplete ? <Check className="w-3.5 h-3.5" strokeWidth={2.5} /> : step.id}
+              {isComplete ? <Check className="h-3.5 w-3.5" strokeWidth={2.5} /> : step.id}
             </div>
-            <div className="flex-1 min-w-0">
-              <div className="text-xs font-medium mb-0.5">Step {step.id}</div>
-              <div className="text-xs opacity-90 leading-tight">{step.label}</div>
+            <div className="min-w-0 flex-1">
+              <div className="mb-0.5 text-xs font-medium">Step {step.id}</div>
+              <div className="text-xs leading-tight text-[var(--color-text-secondary)]">{step.label}</div>
             </div>
           </button>
         );

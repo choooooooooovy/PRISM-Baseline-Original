@@ -13,8 +13,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <body className="font-sans antialiased">
-        {children}
+      <body className="font-sans antialiased bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
+        <div className="min-h-screen w-full bg-[var(--color-bg-primary)]">
+          {children}
+        </div>
       </body>
     </html>
   );

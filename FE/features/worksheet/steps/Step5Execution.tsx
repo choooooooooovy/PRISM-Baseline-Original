@@ -8,24 +8,24 @@ export function Step5Execution() {
   const { session, updateStep5 } = useWorksheet();
 
   return (
-    <div className="max-w-4xl mx-auto px-12 py-8">
+    <div className="mx-auto max-w-4xl px-12 py-8 text-[var(--color-text-primary)]">
       <div className="mb-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-1.5">
+        <h2 className="mb-1.5 text-lg font-semibold text-[var(--color-text-primary)]">
           Step 5: Execution (실행)
         </h2>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-[var(--color-text-secondary)]">
           잠정적인 선택을 실행하기 위한 계획을 수립합니다. 행동을 취하고, 목표를 설정하고, 단계를 계획합니다.
         </p>
       </div>
 
       <div className="space-y-6">
         {/* 준비 프로그램 */}
-        <div className="bg-white border border-gray-200 rounded-lg p-5">
-          <h3 className="text-base font-semibold text-gray-900 mb-4">준비 프로그램 (Preparation Program)</h3>
+        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-card)] p-5">
+          <h3 className="mb-4 text-base font-semibold text-[var(--color-text-primary)]">준비 프로그램 (Preparation Program)</h3>
 
           <label className="block mb-2">
-            <span className="text-sm font-medium text-gray-900">필요한 교육, 훈련 또는 경험</span>
-            <span className="text-xs text-gray-500 block mt-1">
+            <span className="text-sm font-medium text-[var(--color-text-primary)]">필요한 교육, 훈련 또는 경험</span>
+            <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
               당신이 획득해야 할 정규 교육, 훈련 또는 경험을 여기에 적으세요.
             </span>
           </label>
@@ -39,14 +39,14 @@ export function Step5Execution() {
         </div>
 
         {/* 현실 검증 */}
-        <div className="bg-white border border-gray-200 rounded-lg p-5">
-          <h3 className="text-base font-semibold text-gray-900 mb-4">현실 검증 (Reality Testing)</h3>
+        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-card)] p-5">
+          <h3 className="mb-4 text-base font-semibold text-[var(--color-text-primary)]">현실 검증 (Reality Testing)</h3>
 
           {/* 근무 형태 */}
           <div className="mb-5">
             <label className="block mb-2">
-              <span className="text-sm font-medium text-gray-900">얼마나 일할 수 있습니까?</span>
-              <span className="text-xs text-gray-500 block mt-1">
+              <span className="text-sm font-medium text-[var(--color-text-primary)]">얼마나 일할 수 있습니까?</span>
+              <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
                 전일제, 시간제 등 가능한 근무 형태를 적으세요.
               </span>
             </label>
@@ -64,8 +64,8 @@ export function Step5Execution() {
           {/* 자원봉사/직무 경험 */}
           <div className="mb-5">
             <label className="block mb-2">
-              <span className="text-sm font-medium text-gray-900">자원봉사 또는 직무 경험</span>
-              <span className="text-xs text-gray-500 block mt-1">
+              <span className="text-sm font-medium text-[var(--color-text-primary)]">자원봉사 또는 직무 경험</span>
+              <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
                 관련 경험을 쌓을 수 있는 기회를 적으세요.
               </span>
             </label>
@@ -83,8 +83,8 @@ export function Step5Execution() {
           {/* 시간과 자원 */}
           <div>
             <label className="block mb-2">
-              <span className="text-sm font-medium text-gray-900">필요한 코스나 훈련을 받는 데 쓸 시간과 돈이 있습니까?</span>
-              <span className="text-xs text-gray-500 block mt-1">
+              <span className="text-sm font-medium text-[var(--color-text-primary)]">필요한 코스나 훈련을 받는 데 쓸 시간과 돈이 있습니까?</span>
+              <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
                 현실적인 시간과 자원 가용성을 평가하세요.
               </span>
             </label>
@@ -101,12 +101,12 @@ export function Step5Execution() {
         </div>
 
         {/* 구직 활동 */}
-        <div className="bg-white border border-gray-200 rounded-lg p-5">
-          <h3 className="text-base font-semibold text-gray-900 mb-4">구직 활동 (Employment Seeking)</h3>
+        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-card)] p-5">
+          <h3 className="mb-4 text-base font-semibold text-[var(--color-text-primary)]">구직 활동 (Employment Seeking)</h3>
 
           <label className="block mb-2">
-            <span className="text-sm font-medium text-gray-900">취업을 위한 단계</span>
-            <span className="text-xs text-gray-500 block mt-1">
+            <span className="text-sm font-medium text-[var(--color-text-primary)]">취업을 위한 단계</span>
+            <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
               일자리에 지원하고 취업하기 위해 취해야 할 단계들을 여기에 적으세요.
             </span>
           </label>

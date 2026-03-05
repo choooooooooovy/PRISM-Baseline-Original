@@ -8,26 +8,26 @@ export function Step1Communication() {
   const { session, updateStep1 } = useWorksheet();
 
   return (
-    <div className="max-w-4xl mx-auto px-12 py-8">
+    <div className="mx-auto max-w-4xl px-12 py-8 text-[var(--color-text-primary)]">
       <div className="mb-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-1.5">
+        <h2 className="mb-1.5 text-lg font-semibold text-[var(--color-text-primary)]">
           Step 1: Communication (의사소통)
         </h2>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-[var(--color-text-secondary)]">
           진로 의사결정 과정에 참여하고, 선택을 내려야 한다는 사실을 인지하는 단계입니다.
         </p>
       </div>
 
       <div className="space-y-6">
         {/* 외적 단서 */}
-        <div className="bg-white border border-gray-200 rounded-lg p-5">
-          <h3 className="text-base font-semibold text-gray-900 mb-4">외적 단서</h3>
+        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-card)] p-5">
+          <h3 className="mb-4 text-base font-semibold text-[var(--color-text-primary)]">외적 단서</h3>
 
           {/* 사건 */}
           <div className="mb-5">
             <label className="block mb-2">
-              <span className="text-sm font-medium text-gray-900">사건 (Events)</span>
-              <span className="text-xs text-gray-500 block mt-1">
+              <span className="text-sm font-medium text-[var(--color-text-primary)]">사건 (Events)</span>
+              <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
                 당신에게 의사결정을 요구하게 만든 사건(들)을 적으세요.
               </span>
             </label>
@@ -45,8 +45,8 @@ export function Step1Communication() {
           {/* 주요 타인 */}
           <div>
             <label className="block mb-2">
-              <span className="text-sm font-medium text-gray-900">주요 타인 (Significant Other)</span>
-              <span className="text-xs text-gray-500 block mt-1">
+              <span className="text-sm font-medium text-[var(--color-text-primary)]">주요 타인 (Significant Other)</span>
+              <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
                 가족 구성원, 배우자, 또는 당신의 삶에서 중요한 다른 사람들이 당신의 의사결정에 어떻게 영향을 미치고 있는지 여기에 적으세요.
               </span>
             </label>
@@ -63,14 +63,14 @@ export function Step1Communication() {
         </div>
 
         {/* 내적 단서 */}
-        <div className="bg-white border border-gray-200 rounded-lg p-5">
-          <h3 className="text-base font-semibold text-gray-900 mb-4">내적 단서</h3>
+        <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-card)] p-5">
+          <h3 className="mb-4 text-base font-semibold text-[var(--color-text-primary)]">내적 단서</h3>
 
           {/* 정서 */}
           <div className="mb-5">
             <label className="block mb-2">
-              <span className="text-sm font-medium text-gray-900">정서 (Emotions)</span>
-              <span className="text-xs text-gray-500 block mt-1">
+              <span className="text-sm font-medium text-[var(--color-text-primary)]">정서 (Emotions)</span>
+              <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
                 선택을 내려야 한다는 것에 대해 현재 감정적으로 어떻게 느끼고 있는지 여기에 적으세요.
               </span>
             </label>
@@ -88,8 +88,8 @@ export function Step1Communication() {
           {/* 회피 행동 */}
           <div className="mb-5">
             <label className="block mb-2">
-              <span className="text-sm font-medium text-gray-900">회피 행동 (Avoidance Behaviour)</span>
-              <span className="text-xs text-gray-500 block mt-1">
+              <span className="text-sm font-medium text-[var(--color-text-primary)]">회피 행동 (Avoidance Behaviour)</span>
+              <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
                 선택을 내리는 것을 어떻게 회피하고 있는지 적으세요.
               </span>
             </label>
@@ -107,8 +107,8 @@ export function Step1Communication() {
           {/* 신체적 느낌 */}
           <div>
             <label className="block mb-2">
-              <span className="text-sm font-medium text-gray-900">신체적 느낌 (Physically Feeling)</span>
-              <span className="text-xs text-gray-500 block mt-1">
+              <span className="text-sm font-medium text-[var(--color-text-primary)]">신체적 느낌 (Physically Feeling)</span>
+              <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
                 선택을 내려야 한다는 것에 대해 신체적으로 어떻게 느끼고 있는지 적으세요. (예: 스트레스, 식욕 부진, 피로, 과도한 생각 등)
               </span>
             </label>

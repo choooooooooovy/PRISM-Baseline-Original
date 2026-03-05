@@ -54,19 +54,19 @@ export function Step4Valuing() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-12 py-8">
+    <div className="mx-auto max-w-4xl px-12 py-8 text-[var(--color-text-primary)]">
       <div className="mb-6">
-        <h2 className="text-lg font-semibold text-gray-900 mb-1.5">
+        <h2 className="mb-1.5 text-lg font-semibold text-[var(--color-text-primary)]">
           Step 4: Valuing (평가)
         </h2>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-[var(--color-text-secondary)]">
           좁혀진 직업 목록에 있는 각 대안의 비용(손실)과 혜택(이득)을 평가하여 우선순위를 매기고, 직업/학습 프로그램/일자리를 선택하는 단계입니다.
         </p>
       </div>
 
       {selectedOptions.length === 0 ? (
-        <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-5">
-          <p className="text-sm text-yellow-800">
+        <div className="rounded-lg border border-[var(--color-costs)] bg-[var(--color-bg-surface)] p-5">
+          <p className="text-sm text-[var(--color-costs)]">
             Step 3에서 3~5개의 대안을 선택해주세요.
           </p>
         </div>
@@ -77,16 +77,16 @@ export function Step4Valuing() {
             const valuation = getValuation(option.id);
 
             return (
-              <div key={option.id} className="bg-white border-2 border-gray-200 rounded-lg p-6">
-                <h3 className="text-lg font-bold text-gray-900 mb-5">{option.title}</h3>
+              <div key={option.id} className="rounded-lg border-2 border-[var(--color-border)] bg-[var(--color-bg-card)] p-6">
+                <h3 className="mb-5 text-lg font-bold text-[var(--color-text-primary)]">{option.title}</h3>
 
                 {/* 자신 */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-3">자신 (Oneself)</h4>
+                  <h4 className="mb-3 text-sm font-semibold text-[var(--color-text-primary)]">자신 (Oneself)</h4>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block mb-2">
-                        <span className="text-xs font-medium text-green-700">혜택 (Benefits)</span>
+                        <span className="text-xs font-medium text-[var(--color-benefits)]">혜택 (Benefits)</span>
                       </label>
                       <Textarea
                         value={valuation?.oneself.benefits || ''}
@@ -98,7 +98,7 @@ export function Step4Valuing() {
                     </div>
                     <div>
                       <label className="block mb-2">
-                        <span className="text-xs font-medium text-red-700">비용 (Costs)</span>
+                        <span className="text-xs font-medium text-[var(--color-costs)]">비용 (Costs)</span>
                       </label>
                       <Textarea
                         value={valuation?.oneself.costs || ''}
@@ -113,11 +113,11 @@ export function Step4Valuing() {
 
                 {/* 주요 타인 */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-3">주요 타인 (Significant Others)</h4>
+                  <h4 className="mb-3 text-sm font-semibold text-[var(--color-text-primary)]">주요 타인 (Significant Others)</h4>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block mb-2">
-                        <span className="text-xs font-medium text-green-700">혜택 (Benefits)</span>
+                        <span className="text-xs font-medium text-[var(--color-benefits)]">혜택 (Benefits)</span>
                       </label>
                       <Textarea
                         value={valuation?.significantOthers.benefits || ''}
@@ -129,7 +129,7 @@ export function Step4Valuing() {
                     </div>
                     <div>
                       <label className="block mb-2">
-                        <span className="text-xs font-medium text-red-700">비용 (Costs)</span>
+                        <span className="text-xs font-medium text-[var(--color-costs)]">비용 (Costs)</span>
                       </label>
                       <Textarea
                         value={valuation?.significantOthers.costs || ''}
@@ -144,11 +144,11 @@ export function Step4Valuing() {
 
                 {/* 문화 집단 */}
                 <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-gray-900 mb-3">문화 집단 (Cultural Group)</h4>
+                  <h4 className="mb-3 text-sm font-semibold text-[var(--color-text-primary)]">문화 집단 (Cultural Group)</h4>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block mb-2">
-                        <span className="text-xs font-medium text-green-700">혜택 (Benefits)</span>
+                        <span className="text-xs font-medium text-[var(--color-benefits)]">혜택 (Benefits)</span>
                       </label>
                       <Textarea
                         value={valuation?.culturalGroup.benefits || ''}
@@ -160,7 +160,7 @@ export function Step4Valuing() {
                     </div>
                     <div>
                       <label className="block mb-2">
-                        <span className="text-xs font-medium text-red-700">비용 (Costs)</span>
+                        <span className="text-xs font-medium text-[var(--color-costs)]">비용 (Costs)</span>
                       </label>
                       <Textarea
                         value={valuation?.culturalGroup.costs || ''}
@@ -175,11 +175,11 @@ export function Step4Valuing() {
 
                 {/* 지역사회 및 사회 전체 */}
                 <div>
-                  <h4 className="text-sm font-semibold text-gray-900 mb-3">지역사회 및 사회 전체 (Community & Society)</h4>
+                  <h4 className="mb-3 text-sm font-semibold text-[var(--color-text-primary)]">지역사회 및 사회 전체 (Community & Society)</h4>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className="block mb-2">
-                        <span className="text-xs font-medium text-green-700">혜택 (Benefits)</span>
+                        <span className="text-xs font-medium text-[var(--color-benefits)]">혜택 (Benefits)</span>
                       </label>
                       <Textarea
                         value={valuation?.communitySociety.benefits || ''}
@@ -191,7 +191,7 @@ export function Step4Valuing() {
                     </div>
                     <div>
                       <label className="block mb-2">
-                        <span className="text-xs font-medium text-red-700">비용 (Costs)</span>
+                        <span className="text-xs font-medium text-[var(--color-costs)]">비용 (Costs)</span>
                       </label>
                       <Textarea
                         value={valuation?.communitySociety.costs || ''}
@@ -208,21 +208,21 @@ export function Step4Valuing() {
           })}
 
           {/* 최종 선택 */}
-          <div className="bg-white border border-gray-200 rounded-lg p-5">
-            <h3 className="text-base font-semibold text-gray-900 mb-4">최종 선택</h3>
+          <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-card)] p-5">
+            <h3 className="mb-4 text-base font-semibold text-[var(--color-text-primary)]">최종 선택</h3>
 
             {/* 1순위 */}
             <div className="mb-4">
               <label className="block mb-2">
-                <span className="text-sm font-medium text-gray-900">1순위 선택 (Primary Choice)</span>
-                <span className="text-xs text-gray-500 block mt-1">
+                <span className="text-sm font-medium text-[var(--color-text-primary)]">1순위 선택 (Primary Choice)</span>
+                <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
                   지금까지의 모든 정보를 고려하여, 당신의 첫 번째 선택을 적으세요.
                 </span>
               </label>
               <select
                 value={session.step4.primaryChoice}
                 onChange={(e) => updateStep4({ primaryChoice: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gray-900"
+                className="w-full rounded-md border border-[var(--color-border)] bg-[var(--color-bg-card)] px-3 py-2 text-sm text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
               >
                 <option value="">-- 선택하세요 --</option>
                 {selectedOptions.map((opt) => (
@@ -236,15 +236,15 @@ export function Step4Valuing() {
             {/* 2순위 */}
             <div>
               <label className="block mb-2">
-                <span className="text-sm font-medium text-gray-900">2순위 선택 (Secondary Choice)</span>
-                <span className="text-xs text-gray-500 block mt-1">
+                <span className="text-sm font-medium text-[var(--color-text-primary)]">2순위 선택 (Secondary Choice)</span>
+                <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
                   지금까지의 모든 정보를 고려하여, 당신의 두 번째 선택을 적으세요.
                 </span>
               </label>
               <select
                 value={session.step4.secondaryChoice}
                 onChange={(e) => updateStep4({ secondaryChoice: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-200 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-gray-900"
+                className="w-full rounded-md border border-[var(--color-border)] bg-[var(--color-bg-card)] px-3 py-2 text-sm text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
               >
                 <option value="">-- 선택하세요 --</option>
                 {selectedOptions.map((opt) => (

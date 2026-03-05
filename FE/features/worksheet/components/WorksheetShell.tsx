@@ -79,18 +79,18 @@ export function WorksheetShell() {
   const canGoPrevious = session.currentStep > 1;
 
   return (
-    <div className="h-screen flex flex-col bg-white">
+    <div className="flex h-screen flex-col bg-[var(--color-bg-primary)] text-[var(--color-text-primary)]">
       {/* Top Bar */}
-      <header className="bg-white border-b border-gray-200 px-6 py-4 flex items-center justify-between shrink-0">
+      <header className="flex shrink-0 items-center justify-between border-b border-[var(--color-border)] bg-[var(--color-bg-card)] px-6 py-4">
         <div className="flex items-center gap-3">
           <button
             onClick={handleBackToLanding}
-            className="p-1.5 hover:bg-gray-100 rounded-md transition-colors"
+            className="rounded-md p-1.5 transition-colors hover:bg-[var(--color-hover-strong)]"
             title="홈으로"
           >
-            <ArrowLeft className="w-4 h-4 text-gray-600" strokeWidth={2} />
+            <ArrowLeft className="h-4 w-4 text-[var(--color-text-secondary)]" strokeWidth={2} />
           </button>
-          <div className="h-4 w-px bg-gray-200" />
+          <div className="h-4 w-px bg-[var(--color-border)]" />
           {isEditingTitle ? (
             <Input
               type="text"
@@ -104,13 +104,13 @@ export function WorksheetShell() {
                   setIsEditingTitle(false);
                 }
               }}
-              className="h-8 text-sm font-medium border-gray-900"
+              className="h-8 border-[var(--color-accent)] text-sm font-medium"
               autoFocus
             />
           ) : (
             <h1
               onClick={() => setIsEditingTitle(true)}
-              className="text-sm font-medium text-gray-900 cursor-pointer hover:text-gray-600 transition-colors"
+              className="cursor-pointer text-sm font-medium text-[var(--color-text-primary)] transition-colors hover:text-[var(--color-text-secondary)]"
             >
               {session.title}
             </h1>
@@ -119,9 +119,9 @@ export function WorksheetShell() {
       </header>
 
       {/* Main Content - 2 Column Layout */}
-      <div className="flex-1 flex overflow-hidden min-h-0">
+      <div className="flex min-h-0 flex-1 overflow-hidden">
         {/* Left Sidebar - Step Navigation */}
-        <div className="w-56 bg-gray-50 border-r border-gray-200 overflow-y-auto shrink-0">
+        <div className="w-56 shrink-0 overflow-y-auto border-r border-[var(--color-border)] bg-[var(--color-bg-surface)]">
           <StepNavigation
             steps={session.steps}
             currentStep={session.currentStep}
@@ -136,7 +136,7 @@ export function WorksheetShell() {
       </div>
 
       {/* Bottom Bar */}
-      <footer className="bg-white border-t border-gray-200 px-6 py-3.5 flex items-center justify-between shrink-0">
+      <footer className="flex shrink-0 items-center justify-between border-t border-[var(--color-border)] bg-[var(--color-bg-card)] px-6 py-3.5">
         {showReport ? (
           <>
             <Button
@@ -144,10 +144,10 @@ export function WorksheetShell() {
               onClick={handleBackToWorksheet}
               className="flex items-center gap-2"
             >
-              <ArrowLeft className="w-4 h-4" strokeWidth={2} />
+              <ArrowLeft className="h-4 w-4" strokeWidth={2} />
               워크시트로 돌아가기
             </Button>
-            <div className="text-xs text-gray-500">
+            <div className="text-xs text-[var(--color-text-secondary)]">
               리포트 보기
             </div>
             <div className="w-30" /> {/* Spacer for alignment */}
@@ -160,11 +160,11 @@ export function WorksheetShell() {
               disabled={!canGoPrevious}
               className="flex items-center gap-2"
             >
-              <ArrowLeft className="w-4 h-4" strokeWidth={2} />
+              <ArrowLeft className="h-4 w-4" strokeWidth={2} />
               이전
             </Button>
 
-            <div className="text-xs text-gray-500">
+            <div className="text-xs text-[var(--color-text-secondary)]">
               Step {session.currentStep} / {session.steps.length}
             </div>
 
@@ -174,7 +174,7 @@ export function WorksheetShell() {
               className="flex items-center gap-2"
             >
               {session.currentStep === 5 ? '리포트 보기' : '다음'}
-              <ArrowRight className="w-4 h-4" strokeWidth={2} />
+              <ArrowRight className="h-4 w-4" strokeWidth={2} />
             </Button>
           </>
         )}
