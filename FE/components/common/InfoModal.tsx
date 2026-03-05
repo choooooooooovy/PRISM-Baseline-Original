@@ -74,20 +74,13 @@ export function InfoModal({ open, onOpenChange }: InfoModalProps) {
                   선택한 대안을 실행하기 위한 준비 프로그램, 현실 검증, 구직 활동을 계획합니다.
                 </p>
               </div>
-
-              <div className="border-l-2 border-[var(--color-accent)] pl-4">
-                <h4 className="mb-1 text-sm font-medium text-[var(--color-text-primary)]">Step 6: Communication (의사소통 - 재순환)</h4>
-                <p className="text-sm text-[var(--color-text-secondary)]">
-                  결정 후 감정, 격차 해소 여부, 신체 상태를 점검하고 필요시 재순환합니다.
-                </p>
-              </div>
             </div>
           </section>
 
           <section>
-            <h3 className="mb-2 text-sm font-semibold text-[var(--color-text-primary)]">사용 방법</h3>
+            <h3 className="mb-2 text-sm font-semibold text-[var(--color-text-primary)]">프로세스 진행</h3>
             <p className="text-sm leading-relaxed text-[var(--color-text-secondary)]">
-              각 단계의 질문에 답하며 진로 의사결정 과정을 체계적으로 진행합니다.
+              각 단계의 모든 입력 항목을 작성(ChatGPT, 웹 검색 등 외부 지원 이용 가능)하며 진로 의사결정 과정을 진행합니다. <br />
               모든 내용은 자동으로 저장되며, 마지막 단계에서 종합 리포트를 확인할 수 있습니다.
             </p>
           </section>
