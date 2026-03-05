@@ -84,11 +84,6 @@ export function LandingPage({ onStartNew }: LandingPageProps) {
                 label: 'Execution',
                 description: '선택한 대안을 실행하기 위한 구체적인 계획과 현실 검증을 수행합니다.'
               },
-              {
-                step: '6',
-                label: 'Communication (Recycle)',
-                description: '실행 과정에서의 변화를 평가하고 필요시 의사결정 과정을 성찰합니다.'
-              }
             ].map((item, idx) => (
               <div key={idx} className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-surface)] p-4">
                 <div className="flex items-start gap-3">
