@@ -31,7 +31,7 @@ export function InfoModal({ open, onOpenChange }: InfoModalProps) {
           <section>
             <h3 className="mb-2 text-sm font-semibold text-[var(--color-text-primary)]">개요</h3>
             <p className="text-sm leading-relaxed text-[var(--color-text-secondary)]">
-              CASVE는 진로 및 의사결정 문제를 체계적으로 해결하기 위한 6단계 모델입니다.
+              CASVE는 진로 및 의사결정 문제를 체계적으로 해결하기 위한 5단계 모델입니다.
               Communication(의사소통), Analysis(분석), Synthesis(종합), Valuing(평가), Execution(실행), Communication(재순환) 단계로 구성되며,
               각 단계는 명확한 목표와 과제를 가지고 있습니다.
             </p>
