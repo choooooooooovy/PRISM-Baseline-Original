@@ -60,8 +60,6 @@ export interface OptionValuation {
   optionTitle: string;
   oneself: ValuingPerspective;           // 자신
   significantOthers: ValuingPerspective; // 주요 타인
-  culturalGroup: ValuingPerspective;     // 문화 집단
-  communitySociety: ValuingPerspective;  // 지역사회/사회
 }
 
 export interface Step4Data {

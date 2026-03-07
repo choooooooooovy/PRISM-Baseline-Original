@@ -34,8 +34,6 @@ export function Step4Valuing() {
         optionTitle: option?.title || '',
         oneself: { benefits: '', costs: '' },
         significantOthers: { benefits: '', costs: '' },
-        culturalGroup: { benefits: '', costs: '' },
-        communitySociety: { benefits: '', costs: '' },
       };
 
       const fieldObj = newValuation[field as keyof typeof newValuation];
@@ -142,119 +140,57 @@ export function Step4Valuing() {
                   </div>
                 </div>
 
-                {/* 문화 집단 */}
-                <div className="mb-6">
-                  <h4 className="mb-3 text-sm font-semibold text-[var(--color-text-primary)]">문화 집단 (Cultural Group)</h4>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block mb-2">
-                        <span className="text-xs font-medium text-[var(--color-benefits)]">혜택 (Benefits)</span>
-                      </label>
-                      <Textarea
-                        value={valuation?.culturalGroup.benefits || ''}
-                        onChange={(e) => updateValuation(option.id, 'culturalGroup', 'benefits', e.target.value)}
-                        rows={3}
-                        placeholder="당신의 문화 집단에 어떤 혜택을 줄지 적으세요."
-                        className="text-sm"
-                      />
-                    </div>
-                    <div>
-                      <label className="block mb-2">
-                        <span className="text-xs font-medium text-[var(--color-costs)]">비용 (Costs)</span>
-                      </label>
-                      <Textarea
-                        value={valuation?.culturalGroup.costs || ''}
-                        onChange={(e) => updateValuation(option.id, 'culturalGroup', 'costs', e.target.value)}
-                        rows={3}
-                        placeholder="문화 집단에 발생하는 비용은 무엇일까요?"
-                        className="text-sm"
-                      />
-                    </div>
-                  </div>
-                </div>
+                {/* 최종 선택 */}
+                <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-card)] p-5">
+                  <h3 className="mb-4 text-base font-semibold text-[var(--color-text-primary)]">최종 선택</h3>
 
-                {/* 지역사회 및 사회 전체 */}
-                <div>
-                  <h4 className="mb-3 text-sm font-semibold text-[var(--color-text-primary)]">지역사회 및 사회 전체 (Community & Society)</h4>
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label className="block mb-2">
-                        <span className="text-xs font-medium text-[var(--color-benefits)]">혜택 (Benefits)</span>
-                      </label>
-                      <Textarea
-                        value={valuation?.communitySociety.benefits || ''}
-                        onChange={(e) => updateValuation(option.id, 'communitySociety', 'benefits', e.target.value)}
-                        rows={3}
-                        placeholder="지역사회 및 사회 전체에 어떤 혜택을 줄지 적으세요."
-                        className="text-sm"
-                      />
-                    </div>
-                    <div>
-                      <label className="block mb-2">
-                        <span className="text-xs font-medium text-[var(--color-costs)]">비용 (Costs)</span>
-                      </label>
-                      <Textarea
-                        value={valuation?.communitySociety.costs || ''}
-                        onChange={(e) => updateValuation(option.id, 'communitySociety', 'costs', e.target.value)}
-                        rows={3}
-                        placeholder="지역사회 및 사회 전체에 발생하는 비용은 무엇일까요?"
-                        className="text-sm"
-                      />
-                    </div>
+                  {/* 1순위 */}
+                  <div className="mb-4">
+                    <label className="block mb-2">
+                      <span className="text-sm font-medium text-[var(--color-text-primary)]">1순위 선택 (Primary Choice)</span>
+                      <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
+                        지금까지의 모든 정보를 고려하여, 당신의 첫 번째 선택을 적으세요.
+                      </span>
+                    </label>
+                    <select
+                      value={session.step4.primaryChoice}
+                      onChange={(e) => updateStep4({ primaryChoice: e.target.value })}
+                      className="w-full rounded-md border border-[var(--color-border)] bg-[var(--color-bg-card)] px-3 py-2 text-sm text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+                    >
+                      <option value="">-- 선택하세요 --</option>
+                      {selectedOptions.map((opt) => (
+                        <option key={opt.id} value={opt.id}>
+                          {opt.title}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* 2순위 */}
+                  <div>
+                    <label className="block mb-2">
+                      <span className="text-sm font-medium text-[var(--color-text-primary)]">2순위 선택 (Secondary Choice)</span>
+                      <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
+                        지금까지의 모든 정보를 고려하여, 당신의 두 번째 선택을 적으세요.
+                      </span>
+                    </label>
+                    <select
+                      value={session.step4.secondaryChoice}
+                      onChange={(e) => updateStep4({ secondaryChoice: e.target.value })}
+                      className="w-full rounded-md border border-[var(--color-border)] bg-[var(--color-bg-card)] px-3 py-2 text-sm text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+                    >
+                      <option value="">-- 선택하세요 --</option>
+                      {selectedOptions.map((opt) => (
+                        <option key={opt.id} value={opt.id}>
+                          {opt.title}
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 </div>
               </div>
             );
           })}
-
-          {/* 최종 선택 */}
-          <div className="rounded-lg border border-[var(--color-border)] bg-[var(--color-bg-card)] p-5">
-            <h3 className="mb-4 text-base font-semibold text-[var(--color-text-primary)]">최종 선택</h3>
-
-            {/* 1순위 */}
-            <div className="mb-4">
-              <label className="block mb-2">
-                <span className="text-sm font-medium text-[var(--color-text-primary)]">1순위 선택 (Primary Choice)</span>
-                <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
-                  지금까지의 모든 정보를 고려하여, 당신의 첫 번째 선택을 적으세요.
-                </span>
-              </label>
-              <select
-                value={session.step4.primaryChoice}
-                onChange={(e) => updateStep4({ primaryChoice: e.target.value })}
-                className="w-full rounded-md border border-[var(--color-border)] bg-[var(--color-bg-card)] px-3 py-2 text-sm text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
-              >
-                <option value="">-- 선택하세요 --</option>
-                {selectedOptions.map((opt) => (
-                  <option key={opt.id} value={opt.id}>
-                    {opt.title}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* 2순위 */}
-            <div>
-              <label className="block mb-2">
-                <span className="text-sm font-medium text-[var(--color-text-primary)]">2순위 선택 (Secondary Choice)</span>
-                <span className="mt-1 block text-xs text-[var(--color-text-secondary)]">
-                  지금까지의 모든 정보를 고려하여, 당신의 두 번째 선택을 적으세요.
-                </span>
-              </label>
-              <select
-                value={session.step4.secondaryChoice}
-                onChange={(e) => updateStep4({ secondaryChoice: e.target.value })}
-                className="w-full rounded-md border border-[var(--color-border)] bg-[var(--color-bg-card)] px-3 py-2 text-sm text-[var(--color-text-primary)] focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
-              >
-                <option value="">-- 선택하세요 --</option>
-                {selectedOptions.map((opt) => (
-                  <option key={opt.id} value={opt.id}>
-                    {opt.title}
-                  </option>
-                ))}
-              </select>
-            </div>
-          </div>
         </div>
       )}
     </div>
